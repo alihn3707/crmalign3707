@@ -50,3 +50,7 @@ function chips(){const a=D.files||[],ks=Object.keys(FC).filter(k=>a.some(f=>f.ca
   $('#ch').onclick=e=>{const k=e.target.dataset.k;if(k){C=k;chips();list()}}}
 function list(){const q=Q.trim(),l=(D.files||[]).filter(f=>(C==='*'||f.cat===C)&&(!q||(f.code+' '+f.area+' '+f.owner).includes(q))).reverse();
   $('#ls').innerHTML=l.map
+return '<div class="card"><div class="row"><div><b>'+esc(f.area||'—')+'</b> · '+fa(f.size)+' متر<div class="mu">'+(FC[f.cat]||'')+'</div><div class="pr">'+fa(f.price)+' تومان'+(+f.size>0?' <span class="mu">(متری '+fa(Math.round(f.price/f.size))+')</span>':'')+'</div><div class="mu">مالک: '+esc(f.owner)+'</div></div><span class="tag">'+esc(f.code)+'</span></div>'+(ph.length?'<div class="ph">'+ph.map(u=>'<img loading="lazy" src="'+esc(u)+'" alt="">').join('')+'</div>':'')+'</div>'}).join('')||'<div class="card mu">فایلی پیدا نشد.</div>'}
+document.addEventListener('click',e=>{if(e.target.matches('.ph img')){$('#lb').innerHTML='<img src="'+e.target.src+'" alt="">';$('#lb').style.display='flex'}else if(e.target.closest('#lb'))$('#lb').style.display='none'});
+S?load():loginV('');
+</script></body></html>
