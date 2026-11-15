@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><title>فایل‌ها</title>
+<style>
+:root{--bg:#f7f4ed;--cd:#fff;--tx:#1b2535;--mu:#5d6a7c;--ac:#9a6f12;--ac2:#f8f0dc;--ink:#14213a;--bd:#e4ddcc;--bad:#b4453a;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.7 Vazirmatn,Tahoma,sans-serif;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+header{background:linear-gradient(135deg,#14213a,#243c62);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:3px solid #d4ab5a}
+header h1{margin:0;font-size:19px}
+main{max-width:700px;margin:0 auto;padding:14px}
+.card{background:var(--cd);border:1px solid var(--bd);border-inline-start:4px solid var(--ac);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.row{display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
+.mu{color:var(--mu);font-size:13px}.pr{font-weight:700;color:var(--ac)}
+.tag{direction:ltr;font:600 13px ui-monospace,Menlo,monospace;background:var(--ac2);color:var(--ac);border:1.5px solid var(--ac);border-radius:4px 14px 14px 4px;padding:5px 10px}
+.btn{background:var(--ink);color:#fff;border:0;border-radius:8px;padding:8px 14px;font:600 14px Vazirmatn,Tahoma,sans-serif;cursor:pointer}
+header .btn{background:none;border:1px solid #fff6;padding:5px 10px;font-size:13px}
+label{display:block;font-size:13px;color:var(--mu)}
+input{width:100%;font:15px Vazirmatn,Tahoma,sans-serif;padding:9px 10px;margin:4px 0 10px;border:1px solid var(--bd);border-radius:8px;background:#fff;color:var(--tx)}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px}
+.chips button{flex:none;border:1px solid var(--bd);background:var(--cd);color:var(--tx);border-radius:99px;padding:3px 11px;font:13px Vazirmatn,Tahoma,sans-serif;cursor:pointer}
+.chips button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ph{display:flex;gap:8px;overflow-x:auto;margin-top:8px}
+.ph img{width:84px;height:84px;object-fit:cover;border-radius:8px;flex:none;cursor:pointer}
+#lb{position:fixed;inset:0;z-index:9;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:12px}
+#lb img{max-width:100%;max-height:100%;border-radius:8px}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+</style></head><body>
+<header><h1 id="nm">فایل‌ها</h1><div id="hb"></div></header>
+<main id="app"></main><div id="lb"></div>
+<script>
+const U='https://mpqmqwqnsgtjpbthcvfd.supabase.co',K='sb_publishable__BGO-ttCyg8QHr3rwClZpQ_wfgR-mVp';
+const FC={A:'آپارتمان فروشی',B:'پیش‌فروش آپارتمان',C:'ویلایی فروشی',D:'زمین فروشی',E:'مغازه/تجاری فروشی',F:'اداری فروشی',G:'صنعتی فروشی',H:'کشاورزی فروشی',I:'آپارتمان اجاره',J:'ویلایی اجاره',K:'مغازه اجاره',L:'اداری اجاره',M:'صنعتی اجاره',N:'کشاورزی اجاره'};
+const $=s=>document.querySelector(s),fa=n=>(+n||0).toLocaleString('fa-IR'),esc=s=>String(s==null?'':s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+let S=null,D=null,C='*',Q='';
+try{S=JSON.parse(localStorage.getItem('sbm')||'null')}catch(e){}
+const keep=()=>{try{S?localStorage.setItem('sbm',JSON.stringify(S)):localStorage.removeItem('sbm')}catch(e){}};
+async function auth(b,g){const r=await fetch(U+'/auth/v1/token?grant_type='+g,{method:'POST',headers:{apikey:K,'Content-Type':'application/json'},body:JSON.stringify(b)});let j={};try{j=await r.json()}catch(e){}if(!r.ok){const e=new Error('auth');e.st=r.status;throw e}S={at:j.access_token,rt:j.refresh_token,exp:Date.now()+(j.expires_in-60)*1000};keep()}
+async function rpc(){if(!S)throw Object.assign(new Error('no'),{st:401});if(Date.now()>S.exp)await auth({refresh_token:S.rt},'refresh_token');const r=await fetch(U+'/rest/v1/rpc/member_view',{method:'POST',headers:{apikey:K,Authorization:'Bearer '+S.at,'Content-Type':'application/json'},body:'{}'});if(!r.ok)throw new Error('rpc');return r.json()}
+function loginV(m){$('#hb').innerHTML='';$('#app').innerHTML='<div class="card"><div class="mu" style="margin-bottom:10px">ورود اعضا</div><label>ایمیل<input id="e" type="email" autocomplete="username" dir="ltr"></label><label>رمز<input id="p" type="password" autocomplete="current-password" dir="ltr"></label><div class="mu" id="er" style="color:var(--bad);min-height:22px">'+(m||'')+'</div><button class="btn" id="go" style="width:100%">ورود</button></div>';
+  const go=async()=>{$('#er').textContent='';try{await auth({email:$('#e').value.trim(),password:$('#p').value},'password');load()}catch(e){$('#er').textContent=e.st?'ایمیل یا رمز درست نیست.':'اتصال اینترنت را بررسی کنید.'}};
+  $('#go').onclick=go;$('#p').onkeydown=e=>{if(e.key==='Enter')go()}}
+function bar(){$('#hb').innerHTML='<button class="btn" onclick="load()">بروزرسانی</button> <button class="btn" onclick="out()">خروج</button>'}
+function out(){S=null;D=null;keep();loginV('')}
+async function load(){$('#app').innerHTML='<div class="mu" style="text-align:center;padding:30px">در حال خواندن…</div>';
+  try{D=await rpc();if(!D.ok){bar();$('#app').innerHTML='<div class="card">این حساب هنوز به‌عنوان عضو ثبت نشده است. با مدیر تماس بگیرید.</div>';return}view()}
+  catch(e){if(e.st&&e.st>=400&&e.st<500){S=null;keep();loginV('')}else{bar();$('#app').innerHTML='<div class="card">خواندن اطلاعات انجام نشد؛ اینترنت را بررسی کنید و «بروزرسانی» بزنید.</div>'}}}
+function view(){bar();$('#nm').textContent=D.name||'فایل‌ها';document.title=D.name||'فایل‌ها';
+  $('#app').innerHTML='<input id="q" placeholder="جستجو: آدرس، نام مالک یا کد فایل" value="'+esc(Q)+'"><div class="chips" id="ch"></div><div id="ls"></div>';
+  $('#q').oninput=e=>{Q=e.target.value;list()};chips();list()}
+function chips(){const a=D.files||[],ks=Object.keys(FC).filter(k=>a.some(f=>f.cat===k));
+  $('#ch').innerHTML=['*',...ks].map(k=>'<button class="'+(C===k?'on':'')+'" data-k="'+k+'">'+(k==='*'?'همه':FC[k])+' ('+fa(k==='*'?a.length:a.filter(f=>f.cat===k).length)+')</button>').join('');
+  $('#ch').onclick=e=>{const k=e.target.dataset.k;if(k){C=k;chips();list()}}}
+function list(){const q=Q.trim(),l=(D.files||[]).filter(f=>(C==='*'||f.cat===C)&&(!q||(f.code+' '+f.area+' '+f.owner).includes(q))).reverse();
+  $('#ls').innerHTML=l.map
