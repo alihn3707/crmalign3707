@@ -1,56 +1,113 @@
-<!DOCTYPE html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><title>فایل‌ها</title>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>فایل‌ها</title>
 <style>
-:root{--bg:#f7f4ed;--cd:#fff;--tx:#1b2535;--mu:#5d6a7c;--ac:#9a6f12;--ac2:#f8f0dc;--ink:#14213a;--bd:#e4ddcc;--bad:#b4453a;color-scheme:light}
+:root{color-scheme:light;--bg:#f7f4ed;--cd:#fff;--tx:#1b2535;--mu:#5d6a7c;--ac:#9a6f12;--ac2:#f8f0dc;--ink:#14213a;--on:#fff;--bd:#e4ddcc;--bad:#b4453a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0f1824;--cd:#172233;--tx:#e6ebf2;--mu:#93a1b5;--ac:#d4ab5a;--ac2:#2a2616;--ink:#d4ab5a;--on:#0f1824;--bd:#27354a;--bad:#e8806f}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0f1824;--cd:#172233;--tx:#e6ebf2;--mu:#93a1b5;--ac:#d4ab5a;--ac2:#2a2616;--ink:#d4ab5a;--on:#0f1824;--bd:#27354a;--bad:#e8806f}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.7 Vazirmatn,Tahoma,sans-serif;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
-header{background:linear-gradient(135deg,#14213a,#243c62);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:3px solid #d4ab5a}
+html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font:400 15px/1.7 Vazirmatn,Tahoma,sans-serif}
+header{background:linear-gradient(135deg,#14213a,#243c62);color:#fff;padding:14px 16px;border-bottom:3px solid #d4ab5a;display:flex;justify-content:space-between;align-items:center;gap:8px}
 header h1{margin:0;font-size:19px}
-main{max-width:700px;margin:0 auto;padding:14px}
+main{max-width:760px;margin:0 auto;padding:14px}
 .card{background:var(--cd);border:1px solid var(--bd);border-inline-start:4px solid var(--ac);border-radius:14px;padding:12px 14px;margin-bottom:10px}
-.row{display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
-.mu{color:var(--mu);font-size:13px}.pr{font-weight:700;color:var(--ac)}
-.tag{direction:ltr;font:600 13px ui-monospace,Menlo,monospace;background:var(--ac2);color:var(--ac);border:1.5px solid var(--ac);border-radius:4px 14px 14px 4px;padding:5px 10px}
-.btn{background:var(--ink);color:#fff;border:0;border-radius:8px;padding:8px 14px;font:600 14px Vazirmatn,Tahoma,sans-serif;cursor:pointer}
-header .btn{background:none;border:1px solid #fff6;padding:5px 10px;font-size:13px}
+.row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between}
+.mu{color:var(--mu);font-size:13px}
+.tag{flex:none;direction:ltr;font:600 13px/1 ui-monospace,Menlo,monospace;background:var(--ac2);color:var(--ac);border:1.5px solid var(--ac);border-radius:4px 14px 14px 4px;padding:6px 10px}
+.btn{background:var(--ink);color:var(--on);border:0;border-radius:8px;padding:8px 14px;font:600 14px Vazirmatn,Tahoma,sans-serif;cursor:pointer}
+.btn.g{background:none;color:inherit;border:1px solid rgba(255,255,255,.5);padding:4px 12px;font-size:13px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin:8px 0}
+.chips button{flex:none;border:1px solid var(--bd);background:var(--cd);color:var(--tx);border-radius:99px;padding:3px 11px;font:400 13px Vazirmatn,Tahoma,sans-serif;cursor:pointer}
+.chips button.on{background:var(--ink);color:var(--on);border-color:var(--ink)}
+input{width:100%;font:400 15px Vazirmatn,Tahoma,sans-serif;padding:8px 10px;margin:3px 0 10px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx)}
 label{display:block;font-size:13px;color:var(--mu)}
-input{width:100%;font:15px Vazirmatn,Tahoma,sans-serif;padding:9px 10px;margin:4px 0 10px;border:1px solid var(--bd);border-radius:8px;background:#fff;color:var(--tx)}
-.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px}
-.chips button{flex:none;border:1px solid var(--bd);background:var(--cd);color:var(--tx);border-radius:99px;padding:3px 11px;font:13px Vazirmatn,Tahoma,sans-serif;cursor:pointer}
-.chips button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 .ph{display:flex;gap:8px;overflow-x:auto;margin-top:8px}
-.ph img{width:84px;height:84px;object-fit:cover;border-radius:8px;flex:none;cursor:pointer}
-#lb{position:fixed;inset:0;z-index:9;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:12px}
-#lb img{max-width:100%;max-height:100%;border-radius:8px}
-:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
-</style></head><body>
-<header><h1 id="nm">فایل‌ها</h1><div id="hb"></div></header>
-<main id="app"></main><div id="lb"></div>
+.ph img{width:76px;height:76px;object-fit:cover;border-radius:8px;flex:none}
+.login{max-width:400px;margin:30px auto}
+.err{color:var(--bad);min-height:22px;font-size:13px}
+</style>
+</head>
+<body>
+<header><h1>فایل‌ها</h1><button class="btn g" id="out" style="display:none">خروج</button></header>
+<main id="app"></main>
 <script>
-const U='https://mpqmqwqnsgtjpbthcvfd.supabase.co',K='sb_publishable__BGO-ttCyg8QHr3rwClZpQ_wfgR-mVp';
-const FC={A:'آپارتمان فروشی',B:'پیش‌فروش آپارتمان',C:'ویلایی فروشی',D:'زمین فروشی',E:'مغازه/تجاری فروشی',F:'اداری فروشی',G:'صنعتی فروشی',H:'کشاورزی فروشی',I:'آپارتمان اجاره',J:'ویلایی اجاره',K:'مغازه اجاره',L:'اداری اجاره',M:'صنعتی اجاره',N:'کشاورزی اجاره'};
-const $=s=>document.querySelector(s),fa=n=>(+n||0).toLocaleString('fa-IR'),esc=s=>String(s==null?'':s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
-let S=null,D=null,C='*',Q='';
-try{S=JSON.parse(localStorage.getItem('sbm')||'null')}catch(e){}
-const keep=()=>{try{S?localStorage.setItem('sbm',JSON.stringify(S)):localStorage.removeItem('sbm')}catch(e){}};
-async function auth(b,g){const r=await fetch(U+'/auth/v1/token?grant_type='+g,{method:'POST',headers:{apikey:K,'Content-Type':'application/json'},body:JSON.stringify(b)});let j={};try{j=await r.json()}catch(e){}if(!r.ok){const e=new Error('auth');e.st=r.status;throw e}S={at:j.access_token,rt:j.refresh_token,exp:Date.now()+(j.expires_in-60)*1000};keep()}
-async function rpc(){if(!S)throw Object.assign(new Error('no'),{st:401});if(Date.now()>S.exp)await auth({refresh_token:S.rt},'refresh_token');const r=await fetch(U+'/rest/v1/rpc/member_view',{method:'POST',headers:{apikey:K,Authorization:'Bearer '+S.at,'Content-Type':'application/json'},body:'{}'});if(!r.ok)throw new Error('rpc');return r.json()}
-function loginV(m){$('#hb').innerHTML='';$('#app').innerHTML='<div class="card"><div class="mu" style="margin-bottom:10px">ورود اعضا</div><label>ایمیل<input id="e" type="email" autocomplete="username" dir="ltr"></label><label>رمز<input id="p" type="password" autocomplete="current-password" dir="ltr"></label><div class="mu" id="er" style="color:var(--bad);min-height:22px">'+(m||'')+'</div><button class="btn" id="go" style="width:100%">ورود</button></div>';
-  const go=async()=>{$('#er').textContent='';try{await auth({email:$('#e').value.trim(),password:$('#p').value},'password');load()}catch(e){$('#er').textContent=e.st?'ایمیل یا رمز درست نیست.':'اتصال اینترنت را بررسی کنید.'}};
-  $('#go').onclick=go;$('#p').onkeydown=e=>{if(e.key==='Enter')go()}}
-function bar(){$('#hb').innerHTML='<button class="btn" onclick="load()">بروزرسانی</button> <button class="btn" onclick="out()">خروج</button>'}
-function out(){S=null;D=null;keep();loginV('')}
-async function load(){$('#app').innerHTML='<div class="mu" style="text-align:center;padding:30px">در حال خواندن…</div>';
-  try{D=await rpc();if(!D.ok){bar();$('#app').innerHTML='<div class="card">این حساب هنوز به‌عنوان عضو ثبت نشده است. با مدیر تماس بگیرید.</div>';return}view()}
-  catch(e){if(e.st&&e.st>=400&&e.st<500){S=null;keep();loginV('')}else{bar();$('#app').innerHTML='<div class="card">خواندن اطلاعات انجام نشد؛ اینترنت را بررسی کنید و «بروزرسانی» بزنید.</div>'}}}
-function view(){bar();$('#nm').textContent=D.name||'فایل‌ها';document.title=D.name||'فایل‌ها';
-  $('#app').innerHTML='<input id="q" placeholder="جستجو: آدرس، نام مالک یا کد فایل" value="'+esc(Q)+'"><div class="chips" id="ch"></div><div id="ls"></div>';
-  $('#q').oninput=e=>{Q=e.target.value;list()};chips();list()}
-function chips(){const a=D.files||[],ks=Object.keys(FC).filter(k=>a.some(f=>f.cat===k));
-  $('#ch').innerHTML=['*',...ks].map(k=>'<button class="'+(C===k?'on':'')+'" data-k="'+k+'">'+(k==='*'?'همه':FC[k])+' ('+fa(k==='*'?a.length:a.filter(f=>f.cat===k).length)+')</button>').join('');
-  $('#ch').onclick=e=>{const k=e.target.dataset.k;if(k){C=k;chips();list()}}}
-function list(){const q=Q.trim(),l=(D.files||[]).filter(f=>(C==='*'||f.cat===C)&&(!q||(f.code+' '+f.area+' '+f.owner).includes(q))).reverse();
-  $('#ls').innerHTML=l.map
-return '<div class="card"><div class="row"><div><b>'+esc(f.area||'—')+'</b> · '+fa(f.size)+' متر<div class="mu">'+(FC[f.cat]||'')+'</div><div class="pr">'+fa(f.price)+' تومان'+(+f.size>0?' <span class="mu">(متری '+fa(Math.round(f.price/f.size))+')</span>':'')+'</div><div class="mu">مالک: '+esc(f.owner)+'</div></div><span class="tag">'+esc(f.code)+'</span></div>'+(ph.length?'<div class="ph">'+ph.map(u=>'<img loading="lazy" src="'+esc(u)+'" alt="">').join('')+'</div>':'')+'</div>'}).join('')||'<div class="card mu">فایلی پیدا نشد.</div>'}
-document.addEventListener('click',e=>{if(e.target.matches('.ph img')){$('#lb').innerHTML='<img src="'+e.target.src+'" alt="">';$('#lb').style.display='flex'}else if(e.target.closest('#lb'))$('#lb').style.display='none'});
-S?load():loginV('');
-</script></body></html>
+var URL_='https://mpqmqwqnsgtjpbthcvfd.supabase.co',KEY='sb_publishable__BGO-ttCyg8QHr3rwClZpQ_wfgR-mVp';
+var FC={A:'آپارتمان فروشی',B:'پیش‌فروش آپارتمان',C:'ویلایی فروشی',D:'زمین فروشی',E:'مغازه/تجاری فروشی',F:'اداری فروشی',G:'صنعتی فروشی',H:'کشاورزی فروشی',I:'آپارتمان اجاره',J:'ویلایی اجاره',K:'مغازه اجاره',L:'اداری اجاره',M:'صنعتی اجاره',N:'کشاورزی اجاره'};
+var AGE={n:'نوساز',a:'۵ تا ۱۰ سال',o:'سایر'};
+var D={files:[],hoods:[]},cat='*',q='',msg='';
+var app=document.getElementById('app'),out=document.getElementById('out');
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]})}
+function fa(n){return (+n||0).toLocaleString('fa-IR')}
+function nd(s){return String(s==null?'':s).replace(/[۰-۹]/g,function(c){return '۰۱۲۳۴۵۶۷۸۹'.indexOf(c)}).replace(/[٠-٩]/g,function(c){return '٠١٢٣٤٥٦٧٨٩'.indexOf(c)})}
+function safeUrl(u){return /^https:\/\/[^"'<>\s]+$/.test(u)?u:''}
+
+function call(u,p){
+  return fetch(URL_+'/rest/v1/rpc/member_files',{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json'},body:JSON.stringify({p_u:u,p_p:p})})
+  .then(function(r){if(!r.ok)throw new Error('net');return r.json()});
+}
+function login(){
+  out.style.display='none';
+  app.innerHTML='<div class="card login"><label>نام کاربری<input id="u" autocomplete="username" style="direction:ltr" autocapitalize="off"></label><label>رمز<input id="p" type="password" autocomplete="current-password" style="direction:ltr"></label><div class="err" id="e">'+esc(msg)+'</div><button class="btn" id="go" style="width:100%">ورود</button></div>';
+  var go=function(){
+    var u=nd(document.getElementById('u').value).trim().toLowerCase(),p=nd(document.getElementById('p').value);
+    var e=document.getElementById('e');e.textContent='در حال ورود…';
+    call(u,p).then(function(d){
+      if(!d){e.textContent='نام کاربری یا رمز درست نیست.';return}
+      try{sessionStorage.setItem('mu',JSON.stringify([u,p]))}catch(x){}
+      D=d;msg='';show();
+    }).catch(function(){e.textContent='اتصال برقرار نشد؛ اینترنت را بررسی کنید.'});
+  };
+  document.getElementById('go').onclick=go;
+  document.getElementById('p').onkeydown=function(ev){if(ev.key==='Enter')go()};
+}
+function hoodName(f){
+  if(!f.hood)return '';
+  for(var i=0;i<D.hoods.length;i++)if(D.hoods[i].code===f.hood)return D.hoods[i].name;
+  return '';
+}
+function info(f){
+  var p=[];
+  if('ABI'.indexOf(f.cat)>=0){
+    if(f.bed)p.push(esc(f.bed)+' خواب');
+    if(f.dir)p.push('جهت: '+esc(f.dir));
+    if(f.floor)p.push('طبقه '+esc(f.floor)+(f.floors?' از '+esc(f.floors):''));
+    if(f.age&&AGE[f.age])p.push('سن بنا: '+AGE[f.age]);
+    [['park','پارکینگ'],['stor','انباری'],['elev','آسانسور']].forEach(function(x){if(f[x[0]]==='دارد')p.push(x[1])});
+    if(f.deed)p.push('سند: '+esc(f.deed));
+    if(f.occ)p.push(esc(f.occ));
+  }
+  return p.join(' · ');
+}
+function show(){
+  out.style.display='';
+  var present={};D.files.forEach(function(f){present[f.cat]=1});
+  var qq=q.trim();
+  var l=D.files.filter(function(f){
+    if(cat!=='*'&&f.cat!==cat)return false;
+    if(qq&&((f.area||'')+' '+hoodName(f)).indexOf(qq)<0)return false;
+    return true;
+  });
+  var chips='<div class="chips"><button class="'+(cat==='*'?'on':'')+'" data-c="*">همه ('+fa(D.files.length)+')</button>'+Object.keys(FC).filter(function(k){return present[k]}).map(function(k){return '<button class="'+(cat===k?'on':'')+'" data-c="'+k+'">'+FC[k]+' ('+fa(D.files.filter(function(f){return f.cat===k}).length)+')</button>'}).join('')+'</div>';
+  var cards=l.map(function(f){
+    var hn=hoodName(f),inf=info(f);
+    var ph=(f.photos||[]).map(safeUrl).filter(Boolean).map(function(u){return '<img src="'+u+'" data-v="'+u+'" alt="">'}).join('');
+    return '<div class="card"><div class="row"><div><b>'+esc(hn||f.area)+'</b>'+(hn&&f.area?'<div class="mu">'+esc(f.area)+'</div>':'')+'<div class="mu">'+FC[f.cat]+' · '+fa(f.size)+' متر · '+fa(f.price)+' تومان'+(+f.size>0?' · هر متر '+fa(Math.round(f.price/f.size)):'')+'</div>'+(inf?'<div class="mu">'+inf+'</div>':'')+'</div><span class="tag">'+esc(f.code)+'</span></div>'+(ph?'<div class="ph">'+ph+'</div>':'')+'</div>';
+  }).join('')||'<div class="card mu">فایلی با این شرایط نیست.</div>';
+  app.innerHTML='<input id="s" placeholder="جستجوی محله یا آدرس" value="'+esc(q)+'">'+chips+cards;
+  var s=document.getElementById('s');
+  s.oninput=function(){q=s.value;var pos=s.selectionStart;show();var n=document.getElementById('s');n.focus();try{n.setSelectionRange(pos,pos)}catch(x){}};
+  app.querySelectorAll('[data-c]').forEach(function(b){b.onclick=function(){cat=b.getAttribute('data-c');show()}});
+  app.querySelectorAll('[data-v]').forEach(function(i){i.onclick=function(){var d=document.createElement('div');d.style.cssText='position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;padding:12px';var im=document.createElement('img');im.src=i.getAttribute('data-v');im.style.cssText='max-width:100%;max-height:100%;border-radius:8px';d.appendChild(im);d.onclick=function(){d.remove()};document.body.appendChild(d)}});
+}
+out.onclick=function(){try{sessionStorage.removeItem('mu')}catch(x){}D={files:[],hoods:[]};cat='*';q='';login()};
+(function(){
+  var s=null;try{s=JSON.parse(sessionStorage.getItem('mu')||'null')}catch(x){}
+  if(s){call(s[0],s[1]).then(function(d){if(d){D=d;show()}else login()}).catch(login)}else login();
+})();
+</script>
+</body>
+</html>
